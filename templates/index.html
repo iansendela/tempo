@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo por Mapa</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flag-icon-css@3.5.0/css/flag-icon.min.css" />
+    <!-- Inclua o Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        #map {
+            height: 60vh;
+            width: 100%;
+        }
+        #search-container {
+            text-align: center;
+            padding: 20px;
+        }
+        #location-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #location-form input[type="text"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        #location-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #weather-info {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+        #weather-icon {
+            font-size: 64px;
+            margin-top: 10px;
+        }
+        .navbar {
+            background-color: #007BFF;
+        }
+        .navbar-brand {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 28px;
+            margin-top: 0;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegação Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Previsão do Tempo</a>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div id="search-container">
+                    <form id="location-form">
+                        <div class="input-group">
+                            <input type="text" id="location" class="form-control" placeholder="Digite a cidade">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary">Pesquisar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="weather-info">
+                    <h2>Previsão do Tempo</h2>
+                    <p><strong>Cidade:</strong> <span id="city-name"></span></p>
+                    <p><strong>País:</strong> <span id="country-flag"></span></p>
+                    <p><strong>Temperatura:</strong> <span id="temperature"></span>°C</p>
+                    <p><strong>Condições:</strong> <span id="conditions"></span></p>
+                    <i id="weather-icon" class=""></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Inclua o Bootstrap JS e jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/static/map.js"></script>
+</body>
+</html>
